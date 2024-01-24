@@ -2,11 +2,11 @@
 #알파벳
 #R*C 0,0 말
 # 말 상하좌우 네칸 이동하고 다른 알파벳칸만 이동가능
-# 문자 코드로 찾기 
+
 
 def dfs(x,y,visited):
   global cnt
-  
+
 
   for i in range(4):
     nx=x+dx[i]
@@ -15,7 +15,6 @@ def dfs(x,y,visited):
       dfs(nx,ny,visited+graph[nx][ny])
 
   cnt= max(cnt, len(visited))
-
 
 r,c=map(int,input().split())
 
