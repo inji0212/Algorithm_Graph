@@ -24,15 +24,16 @@ def bfs(x,y):
         if graph[nx][ny]==0 and visited[nx][ny]==0:
           cnt+=1
         elif graph[nx][ny]>0 and visited[nx][ny]==0:
+          visited[nx][ny]=1
           queue.append((nx,ny))
-          visited[x][y]=1
     if graph[x][y]-cnt>0:
       graph[x][y]-=cnt
     else:
       graph[x][y]=0
+      visited[x][y]=1
   #각 자리에서 0갯수만큼 뺴고 다음 숫자는 queue에 반복
 
-    
+
 n,m= map(int,input().split())
 graph=[]
 visited=[[0]*m for _ in range(n)]
@@ -40,9 +41,9 @@ for _ in range(n):
   graph.append(list(map(int,input().split())))
 dx=[-1,1,0,0]
 dy=[0,0,-1,1]
-year=1
+year=0
 while 1:
-  
+
   count=0
   visited=[[0]*m for _ in range(n)]
   for i in range(n):
